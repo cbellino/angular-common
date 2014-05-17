@@ -102,6 +102,7 @@
 
                     // draw an image to the context
                     function importImage(data, offsetX, offsetY) {
+                        canvas.width = canvas.width;
                         var img = new Image;
                         img.onload = function() {
                           ctx.drawImage(img, offsetX, offsetY);
