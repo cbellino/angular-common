@@ -65,6 +65,8 @@
                         if (!newVal && oldVal) {
                             reset();
                         }
+
+                        importImage(newVal, 0, 0);
                     });
 
                     // canvas reset
@@ -96,6 +98,15 @@
                             scope.ngModel = canvas.toDataURL();
                             scope.ngChange();
                         });
+                    }
+
+                    // draw an image to the context
+                    function importImage(data, offsetX, offsetY) {
+                        var img = new Image;
+                        img.onload = function() {
+                          ctx.drawImage(img, offsetX, offsetY);
+                        };
+                        img.src = data;
                     }
                 }
             };
