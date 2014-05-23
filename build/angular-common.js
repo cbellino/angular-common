@@ -3403,10 +3403,12 @@ terminal:!0});O.angular.bootstrap?console.log("WARNING: Tried to load angular mo
 
                     // draw an image to the context
                     function importImage(data, offsetX, offsetY) {
-                        canvas.width = canvas.width;
+
                         var img = new Image;
+                        img.crossOrigin = 'anonymous';
                         img.onload = function() {
-                          ctx.drawImage(img, offsetX, offsetY);
+                            reset();
+                            ctx.drawImage(img, offsetX, offsetY);
                         };
                         img.src = data;
                     }
